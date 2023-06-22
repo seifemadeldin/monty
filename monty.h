@@ -1,19 +1,27 @@
 #ifndef MONTY_H
 #define MONTY_H
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/types.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include <string.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <errno.h>
+#include <fcntl.h>
 #include <ctype.h>
+#define Buffsize 30
+
 /**
- * struct stack_s - doubly linked list representation of a stack
- * @n: integer
- * @prev: points to the previous element of the stack
- * @next: points to the next element of the stack
+ * struct stack_s - Doubly linked list representation of a stack (or queue)
+ * @n: Integer
+ * @prev: Points to the previous element of the stack (or queue)
+ * @next: Points to the next element of the stack (or queue)
  *
- * Description: doubly linked list node structure
+ * Description: Doubly linked list node structure
+ * for stack, queues, LIFO, FIFO
+ * Seif Ramadan
  */
 typedef struct stack_s
 {
@@ -23,46 +31,67 @@ typedef struct stack_s
 } stack_t;
 
 /**
- * struct bus_s - variables -args, file, line content
- * @arg: value
- * @file: pointer to monty file
- * @content: line content
- * @lifi: flag change stack <-> queue
- * Description: carries values through the program
- */
-
-typedef struct bus_s
-{
-	char *arg;
-	FILE *file;
-	char *content;
-	int lifi;
-}  bus_t;
-extern bus_t bus;
-
-/**
- * struct instruction_s - opcode and its function
+ * struct instruction_s - Opcode and its function
  * @opcode: the opcode
  * @f: function to handle the opcode
+ *
+ * Description: opcode and its function
+ * for stack, queues, LIFO, FIFO
  */
-
 typedef struct instruction_s
 {
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
-ssize_t getstdin(char **lineptr, int file);
-char  *clean_line(char *content);
-void _push(stack_t **head, unsigned int number);
-void _pall(stack_t **head, unsigned int number);
-void _pint(stack_t **head, unsigned int number);
-int execute(char *content, stack_t **head, unsigned int counter, FILE *file);
-void free_stack(stack_t *head);
-void _pop(stack_t **head, unsigned int counter);
-void _swap(stack_t **head, unsigned int counter);
-void _add(stack_t **head, unsigned int counter);
-void _nop(stack_t **head, unsigned int counter);
-void _sub(stack_t **head, unsigned int counter);
+
+
+/**
+ * struct glob_var - golbal variables
+ * @file: file name
+ * @buff: Getline buffer
+ * @tmp: Getline counter
+ * @dict: instruction dictionary
+ * @head: pointer to list
+ * @line_number: Stores file current line
+ * @MODE: Program configuration stack or queue
+ */
+typedef struct glob_var
+{
+	FILE *file;
+	char *buff;
+	size_t tmp;
+	instruction_t *dict;
+	stack_t *head;
+	unsigned int line_number;
+	int MODE;
+} vars;
+
+
+extern vars var;
+
+/* ================================================================= */
+/* man_file.c */
+int start_vars(vars *var);
+instruction_t *create_instru();
+int call_funct(vars *var, char *opcode);
+void free_all(void);
+int _isdigit(char *string);
+
+/* ================================================================= */
+/* op_funct.c */
+void _pall(stack_t **stack, unsigned int line_number);
+void _push(stack_t **stack, unsigned int line_number);
+void _pint(stack_t **stack, unsigned int line_number);
+void _pop(stack_t **stack, unsigned int line_number);
+
+/* ================================================================= */
+/* op_funct_2.c */
+void _swap(stack_t **stack, unsigned int line_number);
+void _add(stack_t **stack, unsigned int line_number);
+void _sub(stack_t **stack, unsigned int line_number);
+void _divi(stack_t **stack, unsigned int line_number);
+void _mul(stack_t **stack, unsigned int line_number);
+
+
 
 #endif
