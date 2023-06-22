@@ -7,7 +7,6 @@ vars var;
  * @ac: Number of arguments
  * @av: Pointer containing arguments
  * Return: 0 Success, 1 Failed
- * Seif Ramadan
  */
 int main(int ac, char **av)
 {

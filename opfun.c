@@ -1,10 +1,10 @@
 #include "monty.h"
 /**
- * _pall - Print list
+ * pall - Print list
  * @stack: Double linked list
  * @line_number: File line execution
  */
-void _pall(stack_t **stack, unsigned int line_number)
+void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = *stack;
 	(void) line_number;
@@ -19,11 +19,11 @@ void _pall(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * _push - Insert a new value in list
+ * push - Insert a new value in list
  * @stack: Double linked list
  * @line_number: File line execution
  */
-void _push(stack_t **stack, unsigned int line_number)
+void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = NULL, *tm = *stack;
 	char *num;
@@ -62,11 +62,11 @@ void _push(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * _pint - Print last node
+ * pint - Print last node
  * @stack: Double linked list
  * @line_number: File line execution
  */
-void _pint(stack_t **stack, unsigned int line_number)
+void pint(stack_t **stack, unsigned int line_number)
 {
 	if (!*stack)
 	{
@@ -78,11 +78,11 @@ void _pint(stack_t **stack, unsigned int line_number)
 }
 
 /**
-* _pop - Delete top of list
+* pop - Delete top of list
 * @stack: Double linked list
 * @line_number: File line execution
 */
-void _pop(stack_t **stack, unsigned int line_number)
+void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
 

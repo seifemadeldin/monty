@@ -1,11 +1,11 @@
 #include "monty.h"
 
 /**
- * _swap - Delete top of list
+ * swap - Delete top of list
  * @stack: Double linked list
  * @line_number: File line execution
  */
-void _swap(stack_t **stack, unsigned int line_number)
+void swap(stack_t **stack, unsigned int line_number)
 {
 	int tmp;
 
@@ -22,11 +22,11 @@ void _swap(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * _add - add the top two elements of the stack
+ * add - add the top two elements of the stack
  * @stack: Double linked list
  * @line_number: File line execution
  */
-void _add(stack_t **stack, unsigned int line_number)
+void add(stack_t **stack, unsigned int line_number)
 {
 	if (!*stack || !(*stack)->next)
 	{
@@ -36,15 +36,15 @@ void _add(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->next->n = (*stack)->next->n + (*stack)->n;
-	_pop(stack, line_number);
+	pop(stack, line_number);
 }
 
 /**
- * _sub - substract the top two elements of the stack
+ * sub - substract the top two elements of the stack
  * @stack: Double linked list
  * @line_number: Line counter
  */
-void _sub(stack_t **stack, unsigned int line_number)
+void sub(stack_t **stack, unsigned int line_number)
 {
 	if (!*stack || !(*stack)->next)
 	{
@@ -54,15 +54,15 @@ void _sub(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->next->n = (*stack)->next->n - (*stack)->n;
-	_pop(stack, line_number);
+	pop(stack, line_number);
 }
 
 /**
- * _divi - divide the top two elements of the stack
+ * divi - divide the top two elements of the stack
  * @stack: Double linked list
  * @line_number: File line counter
  */
-void _divi(stack_t **stack, unsigned int line_number)
+void divi(stack_t **stack, unsigned int line_number)
 {
 	if (!*stack || !(*stack)->next)
 	{
@@ -78,23 +78,5 @@ void _divi(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->next->n = (*stack)->next->n / (*stack)->n;
-	_pop(stack, line_number);
-}
-
-/**
- * _mul - multiplies the top two elements of the stack
- * @stack: Double linked list
- * @line_number: File line execution
- */
-void _mul(stack_t **stack, unsigned int line_number)
-{
-	if (!*stack || !(*stack)->next)
-	{
-		fprintf(stderr, "L%u: can't mul, stack too short\n",
-			line_number);
-		free_all();
-		exit(EXIT_FAILURE);
-	}
-	(*stack)->next->n = (*stack)->next->n * (*stack)->n;
 	pop(stack, line_number);
 }
