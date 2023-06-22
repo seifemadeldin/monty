@@ -26,7 +26,7 @@ int start_vars(vars *var)
  */
 instruction_t *create_instru()
 {
-	instruction_t *ptr = malloc(sizeof(instruction_t) * 18);
+	instruction_t *ptr = malloc(sizeof(instruction_t) * 11);
 
 	if (!ptr)
 	{
@@ -43,14 +43,7 @@ instruction_t *create_instru()
 	ptr[7].opcode = "sub", ptr[7].f = sub;
 	ptr[8].opcode = "div", ptr[8].f = divi;
 	ptr[9].opcode = "mul", ptr[9].f = mul;
-	ptr[10].opcode = "mod", ptr[10].f = mod;
-	ptr[11].opcode = "pchar", ptr[11].f = pchar;
-	ptr[12].opcode = "pstr", ptr[12].f = pstr;
-	ptr[13].opcode = "rotl", ptr[13].f = rotl;
-	ptr[14].opcode = "rotr", ptr[14].f = rotr;
-	ptr[15].opcode = "stack", ptr[15].f = stack;
-	ptr[16].opcode = "queue", ptr[16].f = queue;
-	ptr[17].opcode = NULL, ptr[17].f = NULL;
+	ptr[17].opcode = NULL, ptr[10].f = NULL;
 
 	return (ptr);
 }
