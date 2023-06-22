@@ -1,7 +1,4 @@
 #include "monty.h"
-/**
- * By: Seif Ramadan
- * /
 
 /**
  * pall - Print list

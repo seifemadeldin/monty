@@ -1,7 +1,4 @@
 #include "monty.h"
-/**
- * By: Seif Ramadan
- * /
 
 /**
  * swap - Delete top of list

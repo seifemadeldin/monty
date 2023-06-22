@@ -14,10 +14,6 @@
 #define Buffsize 30
 
 /**
- * By: Seif Ramadan
- * /
-
-/**
  * struct stack_s - Doubly linked list representation of a stack (or queue)
  * @n: Integer
  * @prev: Points to the previous element of the stack (or queue)
