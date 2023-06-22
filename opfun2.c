@@ -1,4 +1,7 @@
 #include "monty.h"
+/**
+ * By: Seif Ramadan
+ * /
 
 /**
  * swap - Delete top of list
@@ -82,7 +85,7 @@ void divi(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * mul - s
+ * mul - multiplies the top two elements of the stack
  * @stack: Double linked list
  * @line_number: File line execution
  */

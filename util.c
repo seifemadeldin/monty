@@ -1,4 +1,7 @@
 #include "monty.h"
+/**
+ * By: Seif Ramadan
+ * /
 
 /**
  * start_vars - Fake rand to jackpoint Giga Millions
