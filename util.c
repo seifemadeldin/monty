@@ -43,7 +43,7 @@ instruction_t *create_instru()
 	ptr[7].opcode = "sub", ptr[7].f = sub;
 	ptr[8].opcode = "div", ptr[8].f = divi;
 	ptr[9].opcode = "mul", ptr[9].f = mul;
-	ptr[17].opcode = NULL, ptr[10].f = NULL;
+	ptr[10].opcode = NULL, ptr[10].f = NULL;
 
 	return (ptr);
 }
